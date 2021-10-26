@@ -30,3 +30,7 @@ async function main() {
 
 main()
 ```
+
+## License
+
+MIT
