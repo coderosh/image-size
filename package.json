@@ -1,6 +1,6 @@
 {
   "name": "@coderosh/image-size",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get height and width of image in node and browser",
   "main": "dist/index.js",
   "browser": "dist/browser.js",
