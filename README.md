@@ -1,6 +1,6 @@
 # image-size
 
-> Get height and width of image using [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) api in browser and [prob-image-size](https://npmjs.com/package/probe-image-size) package in nodejs.
+> Get height and width of image using [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) api in browser and [buffer-image-size](https://npmjs.com/package/buffer-image-size) package in nodejs.
 
 <a href="https://npmjs.com/package/@coderosh/image-size"><img alt="NPM" src="https://img.shields.io/npm/v/@coderosh/image-size" /></a>
 <a href="https://github.com/coderosh/image-size"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
@@ -19,17 +19,60 @@ yarn add @coderosh/image-size
 
 ## Usage
 
-```js
-import imageSize from '@coderosh/image-size'
+- Image source as url (nodejs and browser)
 
-async function main() {
-  const size = await imageSize('https://ulka.js.org/logo.png')
+  ```js
+  import imageSize from '@coderosh/image-size'
 
-  console.log(size) // { height: 827, width: 738 }
-}
+  const main = async () => {
+    const url = 'https://ulka.js.org/logo.png'
 
-main()
-```
+    const size = await imageSize(url)
+    console.log(size) // { height: 827, width: 738 }
+  }
+  ```
+
+- Image source as arraybuffer (nodejs and browser)
+
+  ```js
+  import imageSize from '@coderosh/image-size'
+
+  const main = async () => {
+    const url = 'https://ulka.js.org/logo.png'
+    const ab = await fetch(url).then((res) => res.arrayBuffer())
+
+    const size = await imageSize(ab)
+    console.log(size) // { height: 827, width: 738 }
+  }
+  ```
+
+- Image source as buffer (nodejs only)
+
+  ```js
+  import imageSize from '@coderosh/image-size'
+
+  const main = async () => {
+    const url = 'https://ulka.js.org/logo.png'
+    const buffer = await fetch(url).then((res) => res.buffer())
+
+    const size = await imageSize(buffer)
+    console.log(size) // { height: 827, width: 738 }
+  }
+  ```
+
+- Image source as blob (browser only)
+
+  ```js
+  import imageSize from '@coderosh/image-size'
+
+  const main = async () => {
+    const url = 'https://ulka.js.org/logo.png'
+    const blob = await fetch(url).then((res) => res.blob())
+
+    const size = await imageSize(blob)
+    console.log(size) // { height: 827, width: 738 }
+  }
+  ```
 
 ## License
 
