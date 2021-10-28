@@ -12,7 +12,8 @@ describe('imageSize:node', () => {
 
   it('should return height and width if src is arraybuffer', async () => {
     const res = await axios.get(imgUrl, { responseType: 'arraybuffer' })
-    const size = await imageSize(res.data)
+
+    const size = await imageSize(res.data.buffer)
     expect(size).toEqual({ height: 827, width: 738 })
   })
 

@@ -1,8 +1,11 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import imageSize from '../src/browser'
 import axios from 'axios'
 
 const imgUrl = 'https://ulka.js.org/logo.png'
-
 describe('imageSize:browser', () => {
   beforeAll(() => {
     window.URL.createObjectURL = () => imgUrl
