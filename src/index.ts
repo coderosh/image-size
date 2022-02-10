@@ -1,5 +1,5 @@
-import sizeOf from 'buffer-image-size'
 import centra from 'centra'
+import sizeOf from 'buffer-image-size'
 
 const imageSize = async (src: string | ArrayBuffer | Buffer) => {
   let buffer: Buffer

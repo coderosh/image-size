@@ -9,6 +9,7 @@ const imgUrl = 'https://ulka.js.org/logo.png'
 describe('imageSize:browser', () => {
   beforeAll(() => {
     window.URL.createObjectURL = () => imgUrl
+    window.URL.revokeObjectURL = () => {}
   })
 
   it('should return width and height if src is url', async () => {

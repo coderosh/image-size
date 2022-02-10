@@ -7,4 +7,5 @@ module.exports = {
   testEnvironmentOptions: {
     resources: 'usable',
   },
+  testTimeout: 10000,
 }

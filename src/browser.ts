@@ -16,7 +16,7 @@ const imageSize = async (src: string | ArrayBuffer | Blob) => {
     image.onload = () => {
       const { height, width } = image
 
-      if (source.startsWith('blob:')) URL.revokeObjectURL(source)
+      if (src instanceof Blob) URL.revokeObjectURL(source)
 
       resolve({ height, width })
     }
